@@ -1,0 +1,239 @@
+*{
+  padding:0;
+  margin:0;
+}
+
+body{
+  padding:0;
+  margin:0;
+  direction:rtl;
+  font-family:'IRANSansWeb' !important  ;  
+  /*background-size:cover;*/
+  /*background-repeat: no-repeat;*/
+  background: url('../img/hr.jpeg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  line-height: 27px;
+
+}
+
+@font-face {
+    font-family:'IRANSansWeb';/*تعریف یک نام برای فونت*/
+    src:url('../fonts/IRANSansWeb.ttf');/*اکسپلورر 9 به بعد*/
+    src:local('IRANSansWeb'),/*بررسی نصب بودن فونت در سیستم کاربر*/
+        local('IRANSansWeb'),/*برای برخی از مرورگرها مانند سافاری*/
+        url('../fonts/IRANSansWeb.eot?#iefix') format('embedded-opentype'),/*هک برای اکسپلورر 8 و ماقبل*/
+        url('../fonts/IRANSansWeb.woff') format('woff'),/*مرورگر های جدید*/
+        url('../fonts/IRANSansWeb.ttf') format('truetype'),/*تمام مرورگرها به جزء اکسپلورر*/
+        url('../fonts/IRANSansWeb.svg#BYekan') format('svg');/*نسخه های قدیمی سیستم عامل iOS*/
+    font-style:normal;
+    font-weight:normal;
+  }
+
+
+  @font-face {
+      font-family:'BRoya';/*تعریف یک نام برای فونت*/
+      src:url('../fonts/BRoya.ttf');/*اکسپلورر 9 به بعد*/
+      src:local('BRoya'),/*بررسی نصب بودن فونت در سیستم کاربر*/
+          local('BRoya'),/*برای برخی از مرورگرها مانند سافاری*/
+          url('../fonts/BRoya.eot?#iefix') format('embedded-opentype'),/*هک برای اکسپلورر 8 و ماقبل*/
+          url('../fonts/BRoya.woff') format('woff'),/*مرورگر های جدید*/
+          url('../fonts/BRoya.ttf') format('truetype'),/*تمام مرورگرها به جزء اکسپلورر*/
+          url('../fonts/BRoya.svg#BYekan') format('svg');/*نسخه های قدیمی سیستم عامل iOS*/
+      font-style:normal;
+      font-weight:normal;
+    }
+  @font-face{
+    font-family:'Shin';/*تعریف یک نام برای فونت*/
+      src:url('../fonts/shin.ttf');/*اکسپلورر 9 به بعد*/
+      src:local('Shin'),/*بررسی نصب بودن فونت در سیستم کاربر*/
+          local('Shin'),/*برای برخی از مرورگرها مانند سافاری*/
+          url('../fonts/Shin.eot?#iefix') format('embedded-opentype'),/*هک برای اکسپلورر 8 و ماقبل*/
+          url('../fonts/Shin.woff') format('woff'),/*مرورگر های جدید*/
+          url('../fonts/Shin.ttf') format('truetype'),/*تمام مرورگرها به جزء اکسپلورر*/
+          url('../fonts/Shin.svg#Shin') format('svg');/*نسخه های قدیمی سیستم عامل iOS*/
+      font-style:normal;
+      font-weight:normal;
+  }
+    .header-background{
+      height:auto;
+      background-size: cover;
+      background-repeat: no-repeat;
+      text-align: center;
+    }
+    .header-background h1{
+      font-size:80px;
+      color:white;
+      text-align: center;
+      display: block;
+      margin-top: 50px;
+      font-family: Shin;
+      margin-bottom: 50px;
+    }
+    .header-background button{
+      padding:10px;
+      width:30.1%;
+      border:1px solid transparent;
+      background: #ff3f0099;
+      color: white;
+    }
+    .header-background p {
+      color:white;
+      margin-top: 10px;
+      background-color:#0006;
+      width:30.2%;
+      display: block;
+      margin:auto;
+    }
+    .content{
+      margin-top: 10px;
+      background:#000000b3;
+      color:white;
+      margin-bottom: 50px;
+
+    }
+    .disc{
+      color:white;
+      padding:10px;
+      /*border-radius: 5px 5px 0 0;*/
+      /*border: 3px solid #ffffff80; */
+      background-color: #008aff;
+    }
+    .type{
+      text-align: center;
+
+
+    }
+    .free{
+      border-left: 2px solid #ffffff80;
+    }
+    .type h3{
+      text-align: center;
+    }
+    .type button{
+      padding:10px;
+      width:50%;
+      border:1px solid transparent;
+      background: #ff3f0099;
+      color: white;
+      border-radius: 3px;
+    }
+    .free{
+      background-color:white;
+      color:#000;
+    }
+    .infofree{
+      height:100%;
+    }
+    .free-sub{
+      display: contents;
+      height: 100%;
+    }
+    .free-form-sub{
+      padding-right:10px;
+      margin-top: 20px;
+    }
+    .free-form-sub input{
+      padding:2px;
+      border:1px #008aff solid;
+      width:98%;
+      border-radius: 5px;
+
+    }
+    .free h2{
+      text-align: center;
+    }
+    .free-form-sub textarea{
+      width:98%;
+      border-radius: 5px;
+      border:1px solid red;
+    }
+    .infofree button{
+      width:60%;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 100%;
+      background-color:white !important;
+      margin:0;
+      padding:0;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .corent {
+        padding: 2px 16px;
+
+    }
+    .pad-top{
+      margin-top: 20px;
+      background-color:white;
+      padding-top:20px;
+      padding-bottom: 20px;
+    }
+    .corent h4{
+      font-family: Shin;
+      font-size:30px;
+    }
+    .list-group a {
+      text-align: center;
+    }
+    .table{
+      border: 4px solid blue;
+      background-color: #aaaa;
+      border: none;
+      border-top: none;
+    }
+    .table thead{
+      background-color: red;
+      color: white;
+    }
+    .table tbody{
+      background-color: #f5f5f5;
+      color: black;
+    }
+    tr button{
+      padding:5px;
+      border:none;
+      background-color:orange;width:50%;
+    }
+    .card img {
+      width:100%;
+    }
+    .type{
+      line-height: 32px;
+      
+    }
+    .content{
+      margin-top: 0;
+    }
+    .disc img{
+      display: block;
+      max-width: 100%;
+      margin:0 auto;
+    }
+    .permi , .free{
+      padding-bottom: 20px;
+    }
+    .btn-danger{
+      border-color: #d43f3a !important;
+    }
+
+    .pad-top{
+      background-color: #008aff;
+    }
+    .bluetg{
+      text-align: center;
+    }
+    .pager li > a{
+      background-color:#008aff;
+      color:#fff;
+      border:0;
+      border-radius: 3px;
+    }
