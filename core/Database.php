@@ -36,14 +36,14 @@
 		// Insert agahi inside database
 		public function submit_agahi($array,$pic='no-image.png')
 		{
-			$escaped = $this->escape($array);
-			$esAcl = $this->clean($escaped);
+			$escaped   = $this->escape($array);
+			$esAcl 	   = $this->clean($escaped);
 			$full_name = $esAcl['full_name'];
-			$phone = $esAcl['phone'];
-			$title = $esAcl['title'];
-			$dis = $esAcl['dis'];
-			$price = $esAcl['price'];
-			$pic = $this->escape($pic);
+			$phone 	   = $esAcl['phone'];
+			$title     = $esAcl['title'];
+			$dis 	   = $esAcl['dis'];
+			$price 	   = $esAcl['price'];
+			$pic 	   = $this->escape($pic);
 
 			// Inserting into database
 		 	$insert_into_database = $this->link->query("INSERT INTO free(full_name,phone,title,dis,price,pic) VALUES 
@@ -69,7 +69,7 @@
 		if (is_array($var)) {
 			$result = array();
 			foreach ($var as $key => $value) {
-				$escape = $this->link->real_escape_string($value);
+				$escape 	  = $this->link->real_escape_string($value);
 				$result[$key] = $escape;
 			}
 		}
@@ -84,7 +84,7 @@
 		if (is_array($var)) {
 			$result = array();
 			foreach ($var as $key => $value) {
-				$clean = preg_replace('/[andor;\/{}.,]/', '', $value);
+				$clean 		  = preg_replace('/[andor;\/{}.,]/', '', $value);
 				$result[$key] = $clean;
 			}
 		}
@@ -113,13 +113,29 @@
 
 	public function get_all_info_id($table,$id)
 	{
-		$escaped = $this->escape($array = array($id,$table));
-		$clean 	 = $this->clean($escaped[0]);
-		$table   = $escaped[1];
-		$id	     = $clean;
+		$escaped 	  = $this->escape($array = array($id,$table));
+		$clean 	  	  = $this->clean($escaped[0]);
+		$table  	  = $escaped[1];
+		$id	    	  = $clean;
 		$get_all_info = $this->link->query("SELECT * FROM $table WHERE id=$id");
 
 		return $get_all_info->fetch_assoc();
+	}
+
+	public function delete_agahi($id=null)
+	{
+		if (is_null($id)) {
+			$delete_all = $this->link->query("DELETE FROM free"); // This delete whole rows of free
+			return true;
+		}
+
+		$safe = new safe('class'); // creat safe obj for class inside
+		$id = $safe->JUST_NUMBER($id); //Just number id
+
+		$delete = $this->link->query("DELETE FROM free WHERE id=$id"); // Delete from database
+
+		return $delete;
+
 	}
 
 	/**
@@ -145,6 +161,9 @@
 			tgrecords(record) 
 			VALUES('$record')");
 	}
+
+
+
 
 
 

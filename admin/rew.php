@@ -78,7 +78,7 @@
 
                     	<div class="btn-group btn-group-justified" style="margin-top: 60px;">
 						  <a href="api.php?full_name=<?php echo urlencode($get_all_info['full_name'])?>&title=<?php echo urlencode($get_all_info['title']) ?>&pic=<?php echo urlencode($get_all_info['pic']) ?>&price=<?php echo urlencode($get_all_info['price']) ?>&phone=<?php echo urlencode($get_all_info['phone']) ?>&dis=<?php echo urlencode($get_all_info['dis']) ?>&id=<?php echo urlencode($get_all_info['id']) ?>" class="btn btn-success">ارسال به چنل</a>
-						  <a href="#" class="btn btn-danger">حذف</a>
+						  <a href="delete.php?id=<?php echo $get_all_info['id']; ?>" class="btn btn-danger">حذف</a>
 						  <a href="." class="btn btn-primary">برگشت</a>
 						</div> 
 

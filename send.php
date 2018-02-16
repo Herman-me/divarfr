@@ -1,12 +1,12 @@
 <?php
-include 'auto.php';
-// Create safe object
-// $safe = new safe;
 
 /**
 * In this page we send the information of the agahi then 
 * redirect to the page one with some messages
 */
+include 'auto.php';
+// Create safe object
+$safe = new safe;
 
 
 // Check if is set file or post informations 
@@ -84,6 +84,8 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 			header("Location: index.php?msg=".$msg);
 		}else header("Location: index.php");
 	}
+
+	$safe->danger();
 
 	
 }
