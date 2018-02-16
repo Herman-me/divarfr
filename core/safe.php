@@ -31,6 +31,14 @@ class safe
 			// exit();
 		}
 		$this->check_ip();
+
+	}
+
+	// Get webSetting
+	private function get_web_setting()
+	{
+		$dbsafe = new Database;
+
 	}
 
 		// Getting real ip address

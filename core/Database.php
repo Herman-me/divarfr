@@ -102,7 +102,6 @@
 		$page 		= $safe->JUST_NUMBER($page);
 		$limit 		= $safe->JUST_NUMBER($limit);
 		$row_number = $page*$limit-$limit;
-		echo $row_number;
 		// Get rew with 10
 		$get_some_rew = $this->link->query("SELECT full_name,title,dis,id FROM free ORDER BY id DESC LIMIT 5 OFFSET $row_number");
 		if ($get_some_rew) {
@@ -110,7 +109,7 @@
 		}
 		return false;
 	}
-
+	// Get tje infos with id escaped and cleaned is better to dont use en words
 	public function get_all_info_id($table,$id)
 	{
 		$escaped 	  = $this->escape($array = array($id,$table));
@@ -122,6 +121,7 @@
 		return $get_all_info->fetch_assoc();
 	}
 
+	// Delete agahis
 	public function delete_agahi($id=null)
 	{
 		if (is_null($id)) {
@@ -138,9 +138,23 @@
 
 	}
 
+	// Get the page info from database like title
+	public function get_some_info()
+	{
+		$get = $this->link->query("SELECT * FROM info WHERE id=1");
+		return $get->fetch_assoc();
+	}
+
+
+
+
+
+
 	/**
 	* The telegram table methods *********************
 	**/
+
+
 
 	public function get_api(){
 		$api = $this->link->query("SELECT api FROM telegram");

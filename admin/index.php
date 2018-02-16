@@ -22,8 +22,6 @@
   $rew = $db->get_rew($page);
 
 
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,7 +63,7 @@
                     <div class="list-group">
                       <a href="#" class="list-group-item active"><i class="fab fa-telegram-plane"></i> آگهی های رایگان ثبت شده</a>
                       <a href="#" class="list-group-item"><i class="fas fa-money-bill-alt"></i> آگهی های پولی ارسال شده</a>
-                      <a href="#" class="list-group-item"> <i class="fas fa-cog"></i> تنظیمات</a>
+                      <a href="setting.php" class="list-group-item"> <i class="fas fa-cog"></i> تنظیمات</a>
                     </div> 
             </div>
 
