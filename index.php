@@ -47,8 +47,12 @@
     <div class="row">
         <div class="col-sm-12">
             <?php
-                $msg = preg_replace("/[<>slr]/", '', $_GET['msg']);
-                echo '<h3>'.$msg.'</h3>';
+            $msg = $_GET['msg'];
+                for ($i = 0; $i < count($msg) ; $i++ ) {
+                    print_r($msg);
+                }
+                // $msg = preg_replace("/[<>slr]/", '', $_GET['msg']);
+                // echo '<h3>'.$msg.'</h3>';
             ?>
             <p style="color:white;">لطلا منتظر باشید تا آگهی شما تایید شود. این فرایند 1 ساعت بیشتر زمان نخواهد برد</p>
         </div>

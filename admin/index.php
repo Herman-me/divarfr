@@ -12,6 +12,8 @@
     $page = $_GET['page'];
     $page = $safe->JUST_NUMBER($_GET['page']);
   }
+
+  // check  
   if ($page <= 0) {
     $page = 1;
   }
@@ -69,7 +71,7 @@
 
         </div>
         <div class="col-sm-8">
-            <div class="card" style="padding: 30px;">
+            <div class="card" style="">
                 <div class="corent">
                     <h4><b>آگهی های رایگان ثبت شده</b></h4> 
                     <p>در این قسمت همه ی آگهی های ثبت شده رایگان را خواهید دید 

@@ -34,7 +34,7 @@
 		  
 
 		// Insert agahi inside database
-		public function submit_agahi($array)
+		public function submit_agahi($array,$pic='no-image.png')
 		{
 			$escaped = $this->escape($array);
 			$esAcl = $this->clean($escaped);
@@ -43,9 +43,11 @@
 			$title = $esAcl['title'];
 			$dis = $esAcl['dis'];
 			$price = $esAcl['price'];
+			$pic = $this->escape($pic);
 
-		 	$insert_into_database = $this->link->query("INSERT INTO free(full_name,phone,title,dis,price) VALUES 
-		  		('$full_name','$phone','$title','$dis','$price')");
+			// Inserting into database
+		 	$insert_into_database = $this->link->query("INSERT INTO free(full_name,phone,title,dis,price,pic) VALUES 
+		  		('$full_name','$phone','$title','$dis','$price','$pic')");
 
 		  	if ($insert_into_database) {
 		  		return TRUE;
@@ -93,7 +95,7 @@
 	}
 
 	// Get info for rew list
-	public function get_rew($page=1,$limit=10)
+	public function get_rew($page=1,$limit=5)
 	{
 		// Creat an safe val
 		$safe		= new safe("class");
@@ -102,7 +104,7 @@
 		$row_number = $page*$limit-$limit;
 		echo $row_number;
 		// Get rew with 10
-		$get_some_rew = $this->link->query("SELECT full_name,title,dis,id FROM free LIMIT 10 OFFSET $row_number");
+		$get_some_rew = $this->link->query("SELECT full_name,title,dis,id FROM free ORDER BY id DESC LIMIT 5 OFFSET $row_number");
 		if ($get_some_rew) {
 			return $get_some_rew;
 		}

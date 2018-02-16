@@ -36,7 +36,7 @@
                 <div class="col-sm-6 free">
                     <p>
                         <div class="free-form-sub ">
-                            <form action="send.php" method="post">
+                            <form action="send.php" method="post" enctype="multipart/form-data">
                                 <label>نام و نام خوانوادگی</label><br>
                                 <input required="true" type="text" name="full_name"><br>
                                 <label>شماره تلفن :</label><br> 
@@ -52,7 +52,7 @@
                                     <option value="بالای یک ملیون تومان">بالای یک ملیون تومان</option>
                                 </select><br>
                                 <label>عکس آگهی:</label><br>
-                                <input required type="file" name="image"><br><hr>
+                                <input type="file" name="image"><br><hr>
                                 <!-- <input style="padding:10px;" type="submit" value="ثبت آگهی" class="btn btn-primary" name="submit"> -->
                                 <div class="btn-group btn-group-justified" style="margin-top: 60px;">
                                 <input style="width:100%;padding:5px;" type="submit" value="ثبت آگهی" class="btn btn-danger" name="submit">

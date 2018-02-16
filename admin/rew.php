@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="col-sm-8">
-            <div class="card" style="padding: 30px;">
+            <div class="card" >
                 <div class="corent">
                     <h4><b>آگهی اقای <?php echo $get_all_info['full_name']; ?> <?php echo $get_all_info['title']?></b></h4> 
                     <p>
