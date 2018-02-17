@@ -148,8 +148,11 @@
 	// Get password and user
 	public function get_admin_info($password,$user=null)
 	{
-		$admin = $this->link->query("SELECT * FROM admin");
+
+		$admin = $this->link->query("SELECT * FROM admins WHERE type=1");
 		if(!is_null($user)){
+			$admin= $admin->fetch_assoc(); // for getting values
+
 			if ($user === $admin['username'] && $password === $admin['password']){
 				return true;
 			}else
@@ -164,6 +167,13 @@
 		
 	}
 
+	//record admin_log
+	public function record()
+	 {
+	 	$ip = $_SESSION['user_ip_add'];
+	 	$record = $this->link->query("INSERT INTO log_requrd(ip) VALUES('$ip')");
+	 	return $record;
+	 } 
 
 
 	/**

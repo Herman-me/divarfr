@@ -263,5 +263,18 @@ body{
       color:#008aff;
     }
     .log_in input[type='text'],input[type='password']{
-      border:0;
     }
+    .affix{
+      top:10px;
+      top: 10px;
+      width: 25%;
+      border: 0;
+      border-radius: 0;
+    }
+    .affix li a{
+      border-top-left-radius: 0 !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+

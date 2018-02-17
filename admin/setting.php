@@ -1,4 +1,5 @@
 <?php include 'auto.php';
+
   /**
   * crat nessasery obj
   */
@@ -35,27 +36,32 @@
 
     <!-- Font awesome new -->
     <script defer src="../ass/js/fontawesome-all.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".nav" data-offset="1">
 
 
 
 <div class="container">
     <div class="row pad-top" style="background-color: transparent;">
         <div class="col-sm-4">
-            <div class="card">
+            <div class="card menu " >
                 <img src="../HERMAN.png" alt="Avatar" style="width:100%">
                 <div class="corent">
                     به مدیریت وبسایت ما خوش آمدید
                     در زیر امکانات بریاش شما نمایان خواهد بود. <br>
                     امید واریم بهترین استفاده ار از این اسکریپت داشته باشید
                 </div><hr>
-                    <div class="list-group">
-                      <a href="index.php" class="list-group-item "><i class="fab fa-telegram-plane"></i> آگهی های رایگان ثبت شده</a>
-                      <a href="#" class="list-group-item"><i class="fas fa-money-bill-alt"></i> آگهی های پولی ارسال شده</a>
-                      <a href="#" class="list-group-item active"> <i class="fas fa-cog"></i> تنظیمات</a>
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="603">
+                  <div class="list-group">
+                    <li>  <a href="index.php" class="list-group-item "><i class="fab fa-telegram-plane"></i> آگهی های رایگان ثبت شده</a></li>
+                      <li><a href="#" class="list-group-item"><i class="fas fa-money-bill-alt"></i> آگهی های پولی ارسال شده</a></li>
+                      <li><a href="#" class="list-group-item active"> <i class="fas fa-cog"></i> تنظیمات</a></li> 
                     </div>
+                </ul>
+                    
             </div>
 
         </div>
@@ -75,11 +81,11 @@
                            <form action="/action_page.php">
                             <div class="form-group">
                               <label for="email">تیتر وبسایت:</label>
-                              <input type="email" name="email" class="form-control" id="email" value="<?php echo $title[0] ?>">
+                              <input required type="text" name="email" class="form-control" id="email" value="<?php echo $title[0] ?>">
                             </div>
                             <div class="form-group">
                               <label for="pwd">رمز خود را وارد کنید:</label> <span style="color:red;font-size: 12px;">برای ثبت تغییرات</span>
-                              <input type="password" name="pwd" class="form-control" id="pwd">
+                              <input required type="password" name="pwd" class="form-control" id="pwd">
                             </div>
                             <button type="submit" class="btn btn-default">ثبت تغییرات </button>
                           </form>
@@ -95,20 +101,21 @@
                         <form action="/action_page.php">
                             <div class="form-group">
                               <label for="email">API BOT: <i class="fas fa-cog"></i></label>
-                              <input type="email" name="email" class="form-control" id="email" value="<?php echo $tel_info['1'] ?>">
+                              <input style="direction: ltr;" type="text" name="email" class="form-control" id="email" value="<?php echo $tel_info['1'] ?>">
                             </div>
                             <div class="form-group">
                               <label for="email">ایدی چنل یا کانال شما: <i class="fas fa-cog"></i></label>
-                              <input type="email" name="email" class="form-control" id="email" value="<?php echo $tel_info[0];?>">
+                              <input style="direction: ltr;" type="text" name="email" class="form-control" id="email" value="<?php echo $tel_info[0];?>">
                             </div>
                             <div class="form-group">
                               <label for="pwd">رمز خود را وارد کنید:</label> <span style="color:red;font-size: 12px;">برای ثبت تغییرات</span>
-                              <input type="password" name="pwd" class="form-control" id="pwd">
+                              <input  type="password" name="pwd" class="form-control" id="pwd">
                             </div>
                             <button type="submit" class="btn btn-default">ثبت تغییرات </button>
                           </form>
                       </div>
                     </div>
+                    
 
                 </div>
 

@@ -1,7 +1,7 @@
 <?php include 'auto.php';
   /**
   * Create an safe obj
-  **/ $safe = new safe;
+  **/ $safe = new safe('admin');
 
   //Creat db_object
   $db = new Database;

@@ -12,13 +12,26 @@ class safe
 		if ($type !="class") {
 			session_start();
 		}
-		// Get real ip address form user and create an session
+
+		// if we use it inside an log page 
+		if ($type == 'log') {
+			if (isset($_SESSION['admin_mokorga'])) {
+				header("Location: index.php");
+			}
+		}
+
+		if ( $_SESSION['admin_mokorga'] != md5($_SESSION['user_ip_add'])) {
+				die();
+		}
+
+
 
 		// Check if we use this inside the admin pages
 		if ($type == 'admin') {
-			if (!isset($_SESSION['admin_logged_in']))
+			if (!isset($_SESSION['admin_mokorga']))
 				header("Location: die.php");
 			}
+
 
 
 		$this->ip_address = $this->get_real_ip_address();
@@ -31,6 +44,10 @@ class safe
 			// exit();
 		}
 		$this->check_ip();
+
+		if ($_SESSION['try'] >5) {
+			$this->danger();
+		}
 
 	}
 
@@ -100,6 +117,13 @@ class safe
 			return false;
 	}
 
+	// admin_log_in
+	public function admin_log_in()
+	{
+		if (!isset($_SESSION['admin'])) {
+			$_SESSION['admin_mokorga'] = md5($this->ip_address);
+		}
+	}
 
 
 	// Generate Strong Password for root
@@ -138,4 +162,15 @@ class safe
 		return $dash_str;
 	}
 
+	// record Log in to the admin pannel
+	public function record_log_in_admin()
+	{
+		$record = $_SESSION['user_ip_add'];
+		$database = new Database; // Start Database connection
+		$record = $database->record();
+		$database->close(); // close database connection
+		if($record)
+			return true;
+		else return false;
+	}
 }
