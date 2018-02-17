@@ -145,8 +145,24 @@
 		return $get->fetch_assoc();
 	}
 
-
-
+	// Get password and user
+	public function get_admin_info($password,$user=null)
+	{
+		$admin = $this->link->query("SELECT * FROM admin");
+		if(!is_null($user)){
+			if ($user === $admin['username'] && $password === $admin['password']){
+				return true;
+			}else
+				return false;
+		}
+		if($password === $admin['password'])
+		{
+			return true;
+		}
+		else
+			return false;
+		
+	}
 
 
 

@@ -1,0 +1,3 @@
+<?php
+
+// Creat new game 

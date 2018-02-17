@@ -237,3 +237,31 @@ body{
       border:0;
       border-radius: 3px;
     }
+
+    .log_in{
+      background-color:white;
+      display: block;
+      float: none;
+      margin:100px auto;
+      /*border:10px solid #008aff;*/
+      padding:0;  
+    }
+    .log_in button{
+      width:50%;
+      background-color:#008aff;
+      color:white;
+      border:none;
+
+    }
+    .log_in img{
+      width:100%;
+    }
+    .log_in form{
+      padding:30px;
+    }
+    .log_in label{
+      color:#008aff;
+    }
+    .log_in input[type='text'],input[type='password']{
+      border:0;
+    }
