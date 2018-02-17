@@ -78,7 +78,7 @@
                       <div class="panel-heading">تنظیمات اصلی وبسایت <i class="fas fa-cog"></i></div>
                       <div class="panel-body">
                         <div class="form">
-                           <form action="/action_page.php">
+                           <form action="savesetting.php" method="post">
                             <div class="form-group">
                               <label for="email">تیتر وبسایت:</label>
                               <input required type="text" name="email" class="form-control" id="email" value="<?php echo $title[0] ?>">
@@ -98,7 +98,7 @@
                     <div class="panel panel-primary">
                       <div class="panel-heading">تنظیمات اتصالات تلگرام <i class="fab fa-telegram-plane"></i></div>
                       <div class="panel-body">
-                        <form action="/action_page.php">
+                        <form action="savesetting.php" method="post">
                             <div class="form-group">
                               <label for="email">API BOT: <i class="fas fa-cog"></i></label>
                               <input style="direction: ltr;" type="text" name="email" class="form-control" id="email" value="<?php echo $tel_info['1'] ?>">

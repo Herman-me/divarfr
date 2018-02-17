@@ -53,7 +53,7 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 
 	}
 		
-
+	
 
 	// Check file size
 	if ($image_size > 5000000) {
@@ -82,6 +82,6 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 	}
 
 	$safe->danger();
-
+	
 	
 }

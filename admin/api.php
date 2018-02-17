@@ -1,4 +1,7 @@
-<?php include 'auto.php';
+<?php
+
+
+include 'auto.php';
 $safe = new safe('admin');
 header('Content-type: text/plain');
 
