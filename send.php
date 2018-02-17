@@ -4,6 +4,7 @@
 * In this page we send the information of the agahi then 
 * redirect to the page one with some messages
 */
+
 include 'auto.php';
 // Create safe object
 $safe = new safe;
@@ -31,6 +32,7 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 
 
 }else{
+	echo "sala,";
 	
 	$image_name = $_FILES['image']['name'];
 	$image_tmp  = $_FILES['image']['tmp_name'];
@@ -52,12 +54,6 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 	}
 		
 
-
-	// Checking if file is exists on server or not
-	if (file_exists($target_file)) {
-		$upload_ok 	= 0;
-		array_push($error, 'فایل انتخابی در سرور موجود میباشد');
-	}
 
 	// Check file size
 	if ($image_size > 5000000) {

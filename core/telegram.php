@@ -64,7 +64,7 @@ class telegram
 	/** End of main proccess and Start functionality **/
 
 	// Send image width caption to the telegram
-	public function send_image_tg($photo = '../dis.png',$caption=null)
+	public function send_image_tg($photo = '../dis.png',$caption='@xmlrpc_parse_method_descriptions(xml)')
 	{
 		// Creat an link for sending image :)
 		$send        = $this->url . "sendPhoto?chat_id=" . $this->chatid;
@@ -91,4 +91,33 @@ class telegram
 		$db->close();
 		return $output;
 	}
+
+	// Send just_text to the channel
+	public function send_to_tg($message=''){
+    
+		$BOT_API = $this->api; // Give the api of bot
+		$CHAT_ID = $this->chatid;
+
+		 $botToken = $BOT_API;
+		$chat_id = $CHAT_ID;
+
+
+		$message = strip_tags($message);
+
+		$bot_url    = "https://api.telegram.org/bot$botToken/";
+		$url = $bot_url."sendMessage?chat_id=".$chat_id."&text=".urlencode($message);
+
+		$os = '';
+		try{
+		$os = @file_get_contents($url);
+		}catch(Exeption $e){
+		$os = 'ERROR';
+
+		}
+		    $db = new Database;
+		    $db->save_record($os);
+		    $db->close();
+		  	return $os;
+   }
+    
 }
