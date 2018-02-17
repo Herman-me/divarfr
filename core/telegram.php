@@ -10,7 +10,7 @@ class telegram
 
 	private $url;
 	private $defult_msg = '@divarsr'; // For adding in future
-	
+
 	function __construct()
 	{
 		// set the api
@@ -55,7 +55,11 @@ class telegram
 		$this->url = 'https://api.telegram.org/bot'.$this->api.'/';
 	}
 
-
+  public function get_ip_id()
+  {
+    $array = array($this->chatid , $this->api);
+    return $array;
+  }
 
 	/** End of main proccess and Start functionality **/
 
@@ -73,13 +77,13 @@ class telegram
 		    'caption'=>$caption,
 		);
 
-		$ch = curl_init(); 
+		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 		    "Content-Type:multipart/form-data"
 		));
-		curl_setopt($ch, CURLOPT_URL, $send); 
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields); 
+		curl_setopt($ch, CURLOPT_URL, $send);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
 		$output = curl_exec($ch);
 
 		$db = new Database;
@@ -88,5 +92,3 @@ class telegram
 		return $output;
 	}
 }
-
-

@@ -3,7 +3,7 @@
 /**
 * This class give security to the Web
 */
-class safe 
+class safe
 {
 	public $ip_address;
 
@@ -19,7 +19,7 @@ class safe
 			if (!isset($_SESSION['admin_logged_in']))
 				die();
 			}
-		
+
 
 		$this->ip_address = $this->get_real_ip_address();
 		if (!isset($_SESSION['user_ip_add'])) {

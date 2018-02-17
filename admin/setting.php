@@ -1,6 +1,18 @@
-<?php
+<?php include 'auto.php';
+  /**
+  * crat nessasery obj
+  */
+  $safe = new safe;
+  $db = new Database;
+  $tel = new telegram; // Telegram bots
+  $page = new pageindex;
+
+  // Get info from tel
+  $tel_info = $tel->get_ip_id(); //This will get vals for show to the user
 
 
+  // Get web infoes
+  $title = $page->show();
  ?>
 <!DOCTYPE html>
 <html>
@@ -63,7 +75,7 @@
                            <form action="/action_page.php">
                             <div class="form-group">
                               <label for="email">تیتر وبسایت:</label>
-                              <input type="email" name="email" class="form-control" id="email">
+                              <input type="email" name="email" class="form-control" id="email" value="<?php echo $title[0] ?>">
                             </div>
                             <div class="form-group">
                               <label for="pwd">رمز خود را وارد کنید:</label> <span style="color:red;font-size: 12px;">برای ثبت تغییرات</span>
@@ -83,7 +95,11 @@
                         <form action="/action_page.php">
                             <div class="form-group">
                               <label for="email">API BOT: <i class="fas fa-cog"></i></label>
-                              <input type="email" name="email" class="form-control" id="email">
+                              <input type="email" name="email" class="form-control" id="email" value="<?php echo $tel_info['1'] ?>">
+                            </div>
+                            <div class="form-group">
+                              <label for="email">ایدی چنل یا کانال شما: <i class="fas fa-cog"></i></label>
+                              <input type="email" name="email" class="form-control" id="email" value="<?php echo $tel_info[0];?>">
                             </div>
                             <div class="form-group">
                               <label for="pwd">رمز خود را وارد کنید:</label> <span style="color:red;font-size: 12px;">برای ثبت تغییرات</span>
