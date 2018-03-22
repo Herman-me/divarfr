@@ -55,11 +55,11 @@ class telegram
 		$this->url = 'https://api.telegram.org/bot'.$this->api.'/';
 	}
 
-  public function get_ip_id()
-  {
-    $array = array($this->chatid , $this->api);
-    return $array;
-  }
+  	public function get_ip_id()
+  	{
+  	  $array = array($this->chatid , $this->api);
+  	  return $array;
+ 	 }
 
 	/** End of main proccess and Start functionality **/
 
@@ -94,7 +94,7 @@ class telegram
 
 	// Send just_text to the channel
 	public function send_to_tg($message=''){
-    
+
 		$BOT_API = $this->api; // Give the api of bot
 		$CHAT_ID = $this->chatid;
 
@@ -119,5 +119,5 @@ class telegram
 		    $db->close();
 		  	return $os;
    }
-    
+
 }

@@ -1,4 +1,7 @@
-<?php  session_start();?>
+<?php include 'auto.php';
+    $page = new pageindex;
+    $safe = new safe;
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,13 +24,16 @@
     <!-- Font awesome new -->
     <script defer src="ass/js/fontawesome-all.js"></script>
 
+    <!-- Include angular Js -->
+    <script src="ass/js/angular.js" type="text/javascript"></script>
+
   </head>
   <body>
 
 <div class="container-fluid">
     <div class="row header-background">
         <div class="col-sm-12">
-          <h1> <i class="fab fa-telegram-plane"></i>کانال رسمی دیوار فریدونشهر</h1>
+          <h1> <i class="fab fa-telegram-plane"></i><?php echo $page->page_title; ?></h1>
             <div class="buttons">
                 <button style="border-right:3px solid white;">ارجاع به کانال</button>
                 <div class="dis">
@@ -65,31 +71,31 @@
             <div class="card">
                 <img src="HERMAN.png" alt="Avatar" style="width:100%">
                 <div class="corent">
-                    <h4><b>مهدی رحیمی</b></h4> 
-                    <p>تکنسین & برنامه نویس</p> 
+                    <h4><b>مهدی رحیمی</b></h4>
+                    <p>تکنسین & برنامه نویس</p>
                 </div>
             </div>
 
         </div>
         <div class="col-sm-4">
             <div class="card">
-                <img src="korosh.jpg" alt="Avatar" style="width:100%">
+                <img src="koskeshekheng.jpg" alt="Avatar" style="width:100%">
                 <div class="corent">
-                    <h4><b>کوروش رحیمی</b></h4> 
-                    <p>باز ساز & گرافیست</p> 
+                    <h4><b>کوروش رحیمی</b></h4>
+                    <p>باز ساز & گرافیست</p>
                 </div>
             </div>
-            
+
         </div>
         <div class="col-sm-4">
             <div class="card">
-                <img src="yahya.jpg" alt="Avatar" style="width:100%">
+                <img src="jahya.jpg" alt="Avatar" style="width:100%">
                 <div class="corent  ">
-                    <h4><b>یحیی گوگونانی</b></h4> 
-                    <p>بازی ساز & طراح وب</p> 
+                    <h4><b>sadasdas</b></h4>
+                    <p>ب</p>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -128,7 +134,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

@@ -13,7 +13,7 @@ if (!isset($_SESSION['try'])) {
 }
 
 // If isset session try plus one it
-$_SESSION['try'] = 1;
+$_SESSION['try']++;
 
 // Insert values into database
 if ($_POST['text'] != '' && $_POST['password'] != '' && !is_null($_POST['password'])) {
@@ -24,9 +24,10 @@ if ($_POST['text'] != '' && $_POST['password'] != '' && !is_null($_POST['passwor
 	$check_log_admin = $safe->check_log_admin($password,$user);
 	if ($check_log_admin) {
 		$safe->admin_log_in();
-		echo $_SESSION['admin_mokorga'];
 		// Record the login into admin
 		$record = $safe->record_log_in_admin();
+		header("Location: index.php");
+
 	}else{
 		header('Location: log_in.php');
 	}

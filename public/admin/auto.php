@@ -1,5 +1,5 @@
 <?php
 
 function __autoload($class){
-	include "core/$class.php";
+	include "../../core/$class.php";
 }

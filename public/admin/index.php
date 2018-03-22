@@ -6,14 +6,14 @@
   //Creat db_object
   $db = new Database;
 
-  // Get page 
+  // Get page
   $page = 1;
   if (isset($_GET['page'])) {
     $page = $_GET['page'];
     $page = $safe->JUST_NUMBER($_GET['page']);
   }
 
-  // check  
+  // check
   if ($page <= 0) {
     $page = 1;
   }
@@ -44,6 +44,8 @@
 
     <!-- Font awesome new -->
     <script defer src="../ass/js/fontawesome-all.js"></script>
+    <script src="../ass/js/angular.js" type="text/javascript"></script>
+
 
   </head>
   <body>
@@ -64,15 +66,15 @@
                       <a href="#" class="list-group-item active"><i class="fab fa-telegram-plane"></i> آگهی های رایگان ثبت شده</a>
                       <a href="#" class="list-group-item"><i class="fas fa-money-bill-alt"></i> آگهی های پولی ارسال شده</a>
                       <a href="setting.php" class="list-group-item"> <i class="fas fa-cog"></i> تنظیمات</a>
-                    </div> 
+                    </div>
             </div>
 
         </div>
         <div class="col-sm-8">
             <div class="card" style="">
                 <div class="corent">
-                    <h4><b>آگهی های رایگان ثبت شده</b></h4> 
-                    <p>در این قسمت همه ی آگهی های ثبت شده رایگان را خواهید دید 
+                    <h4><b>آگهی های رایگان ثبت شده</b></h4>
+                    <p>در این قسمت همه ی آگهی های ثبت شده رایگان را خواهید دید
                         بعد از تائید به صورت خودکار بر روی چنل شما قرار خواهد گرفت
                     </p> <hr>
 
@@ -95,7 +97,7 @@
                                 <td>
                                   <a href="rew.php?id=<?php echo $row['id'] ?>">
                                     <button class="btn btn-success" style="width:100%;">
-                                     برسی 
+                                     برسی
                                     </button>
                                   </a>
                                 </td>
@@ -111,7 +113,7 @@
                   <li><a href="index.php?page=<?php echo $page-1 ?>">صفحه ی قبل</a></li>
                 </div>
             </div>
-            
+
         </div>
 
     </div>

@@ -1,7 +1,7 @@
 <?php
 
 /**
-* In this page we send the information of the agahi then 
+* In this page we send the information of the agahi then
 * redirect to the page one with some messages
 */
 
@@ -10,10 +10,10 @@ include 'auto.php';
 $safe = new safe;
 
 
-// Check if is set file or post informations 
+// Check if is set file or post informations
 if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) {
 
-	// Creating an array  
+	// Creating an array
 	$not_escaped_array = array(
 		'full_name' =>$_POST['full_name'],
 		'phone'=>$_POST['phone'],
@@ -31,9 +31,9 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 	}else header("Location: index.php");
 
 
-}else{
-	echo "sala,";
-	
+}elseif (isset($_POST['submit']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
+
+
 	$image_name = $_FILES['image']['name'];
 	$image_tmp  = $_FILES['image']['tmp_name'];
 	$image_size = $_FILES['image']['size'];
@@ -52,8 +52,8 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 		array_push($error, 'فایل انتخابی معتبر نمیباشد');
 
 	}
-		
-	
+
+
 
 	// Check file size
 	if ($image_size > 5000000) {
@@ -69,7 +69,7 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 			array_push($error, "فایل ها با موفقیت آپلود شد");
 		}
 
-		// Creating an array  
+		// Creating an array
 		$not_escaped_array = array('full_name' =>$_POST['full_name'],'phone'=>$_POST['phone'],'title'=>$_POST['title'],'dis'=>$_POST['dis'],'price'=>$_POST['price']);
 
 		$db = new Database; // Connect to database
@@ -78,10 +78,14 @@ if (isset($_POST['submit']) && !is_uploaded_file($_FILES['image']['tmp_name'])) 
 			array_push($error, "آگهی شما ثب شد منتظر تایید و قرار گیری آن در چنل باشید");
 			$msg = $error[0];
 			header("Location: index.php?msg=".$msg);
-		}else header("Location: index.php");
+		}else{
+      header('Location: index.php');
+    }
 	}
 
-	$safe->danger();
-	
-	
+
+
+}
+else{
+  $safe->danger();
 }

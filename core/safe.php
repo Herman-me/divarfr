@@ -9,30 +9,9 @@ class safe
 
 	function __construct($type=null)
 	{
-		if ($type !="class") {
+		if ($type != "class") {
 			session_start();
 		}
-
-		// if we use it inside an log page 
-		if ($type == 'log') {
-			if (isset($_SESSION['admin_mokorga'])) {
-				header("Location: index.php");
-			}
-		}
-
-		if ( $_SESSION['admin_mokorga'] != md5($_SESSION['user_ip_add'])) {
-				die();
-		}
-
-
-
-		// Check if we use this inside the admin pages
-		if ($type == 'admin') {
-			if (!isset($_SESSION['admin_mokorga']))
-				header("Location: die.php");
-			}
-
-
 
 		$this->ip_address = $this->get_real_ip_address();
 		if (!isset($_SESSION['user_ip_add'])) {
@@ -41,13 +20,32 @@ class safe
 
 		//If $_SESSION danger is activated => kill prossece
 		if (isset($_SESSION['danger'])) {
-			// exit();
+			header('Location: danger.php');
 		}
-		$this->check_ip();
 
-		if ($_SESSION['try'] >5) {
+		if (isset($_SESSION['try']) && $_SESSION['try'] >5) {
 			$this->danger();
 		}
+
+		// Check if we use this inside the admin pages
+		if ($type == 'admin') {
+			if (!isset($_SESSION['admin_mokorga']))
+				header("Location: log_in.php");
+
+			if ($_SESSION['admin_mokorga'] != md5($_SESSION['user_ip_add'])) {
+				die();
+			}
+		}
+
+
+		// if we use it inside an log page
+		if ($type == 'log') {
+			if (isset($_SESSION['admin_mokorga'])) {
+				header("Location: index.php");
+			}
+		}
+
+
 
 	}
 
@@ -78,14 +76,6 @@ class safe
 
 
 
-	// Checking ip that dosent change
-	public function check_ip()
-	{
-		if ($this->ip_address !== $_SESSION['user_ip_add']) {
-			die();
-		}
-	}
-
 	// Function for filter alphabets _JUST_NUMBER
 	public function JUST_NUMBER($number)
 	{
@@ -99,17 +89,19 @@ class safe
 		$_SESSION['danger'] = $this->ip_address;
 	}
 
- 	// Check password for web
+ 	// Check password for admin_loggin
 	public function check_log_admin($password,$user=null)
 	{
 		$database = new Database;
 		if(is_null($user)){
 			$check = $database->get_admin_info($password); // This check admin is logged in or not
+			$database->close();
 			if($check)
 				return true;
 			else
 				return false;
 		}
+
 		$check = $database->get_admin_info($password,$user);
 		if ($check)
 			return true;
@@ -120,9 +112,7 @@ class safe
 	// admin_log_in
 	public function admin_log_in()
 	{
-		if (!isset($_SESSION['admin'])) {
-			$_SESSION['admin_mokorga'] = md5($this->ip_address);
-		}
+		$_SESSION['admin_mokorga'] = md5($this->ip_address);
 	}
 
 
@@ -171,6 +161,26 @@ class safe
 		$database->close(); // close database connection
 		if($record)
 			return true;
+		else return false;
+	}
+
+	// Update settings
+	public function update_setting($title)
+	{
+		$database = new Database; // start connection
+		$update_title = $database->update_tite($title);
+		$database->close();
+		if ($update_title)
+			 return true;
+		else return false;
+	}
+
+	// The method for update the tel infos api , chatid
+	public function update_setting_tel($api,$chatid)
+	{
+		$db = new Database;
+		$update = $db->tel_info_update($api,$chatid);
+		if($update) return true;
 		else return false;
 	}
 }
